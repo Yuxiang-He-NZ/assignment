@@ -1,0 +1,364 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx, float}
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\setlength{\parskip}{0.8em}     % vertical space between paragraphs
+
+\title{Math 1231 Assignment}
+\author{Yuxiang He}
+\date{October 31, 2025}
+
+\begin{document}
+\maketitle
+\newpage
+
+
+\section*{Question 1}
+The function $T:\mathbb{R}^2\to\mathbb{R}^3$ is defined by
+\begin{equation*}
+  T\begin{pmatrix} 
+    x_1 \\ 
+    x_2 
+  \end{pmatrix}
+  = \begin{pmatrix} x_1 \\ 
+    5x_1 + 5x_2 \\ 
+    x_2 
+  \end{pmatrix}
+  \text{for all}
+  \begin{pmatrix}x_1\\x_2\end{pmatrix}\in\mathbb{R}^2.
+\end{equation*}
+Show that $T$ is linear.
+
+$Solution$. First we know the domain and codomain of
+$T$ are in known vector spaces namely $\mathbb{R}^2$ and $\mathbb{R}^3$ respectively. 
+So to see if it's linear we need to check addition and scalar 
+multiplication conditions.
+
+\textbf{Addition condition.} For $\mathbf{x},
+ \mathbf{x}^\prime\in\mathbb{R}^2$, 
+we have $\mathbf{x}+ \mathbf{x}^\prime = 
+\begin{pmatrix}
+  x_1 + x_1^\prime\\
+  x_2 + x_2^\prime
+\end{pmatrix}
+\in \mathbb{R}^2$, and hence
+\begin{equation*}
+\begin{aligned}
+  T(\mathbf{x} + \mathbf{x}^\prime) &=
+  \begin{pmatrix}
+    x_1 + x_1^\prime\\
+    5(x_1 + x_1^\prime) + 5(x_2 + x_2^\prime)\\ 
+    x_2 + x_2^\prime
+  \end{pmatrix}
+  \\ &= 
+  \begin{pmatrix}
+    x_1\\
+    5x_1 + 5x_2\\ 
+    x_2
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    x_1^\prime\\
+    5x_1^\prime + 5x_2^\prime\\ 
+    x_2^\prime
+  \end{pmatrix}
+  \\&= 
+  T(\mathbf{x}) +T(\mathbf{x}^\prime).
+\end{aligned}
+\end{equation*}
+Thus, the addition condition is satisfied.
+
+\textbf{Scalar multiplication condition.} 
+For $\mathbf{x} \in \mathbb{R}^2$ and $\lambda \in \mathbb{R}$, we have $\lambda \mathbf{x} =
+\begin{pmatrix}
+  \lambda x_1\\
+  \lambda x_2
+\end{pmatrix}
+\in \mathbb{R}^2$, and hence
+\begin{equation*}
+  T(\lambda \mathbf{x}) = 
+  \begin{pmatrix} 
+    \lambda x_1 \\ 
+    \lambda(5x_1) + \lambda(5x_2) \\ 
+    \lambda x_2 
+  \end{pmatrix}
+  =
+  \lambda\begin{pmatrix} 
+     x_1 \\ 
+    5x_1 + 5x_2 \\ 
+     x_2 
+  \end{pmatrix} = \lambda T(\mathbf{x}).
+\end{equation*}
+Thus, the scalar multiplication condition is also satisfied,
+and therefore $T$ is a linear map.
+
+\newpage
+\section*{Question 2}
+Show that
+\begin{equation*}
+  S = \{\mathbf{x} \in \mathbb{R}^4 : 3x_1-4x_2-8x_3-2x_4=0\}
+\end{equation*}
+is a subspace of $\mathbb{R}^4$.
+
+$Solution.$ First to figure out if $S$ is a subspace of 
+$\mathbb{R}^4$, we need to apply the Subspace Theorem. 
+This states that a subset $S$ of a vector space $V$ over a field 
+$\mathbb{F}$, under the same rules for addition and 
+multiplication by scalars, is a subspace of $V$ if and only if
+\begin{enumerate}[label=\roman*)]
+  \item the vector $\mathbf{0}$ in $V$ also belongs to $S$.
+  \item $S$ is closed under addition
+  \item $S$ is closed under scalar multiplication 
+  by scalars from $\mathbb{F}$.
+\end{enumerate}
+
+\textbf{Check for the vector $\mathbf{0}$.} This is simply done as
+$3(0) - 4(0) - 8(0) - 2(0) = 0$, so the zero vector of 
+$\mathbb{R}^4$ is in $S$.
+
+\textbf{Closure under addition.}
+For any vector $\mathbf{u} = 
+\begin{pmatrix}
+  u_1\\
+  u_2\\
+  u_3\\
+  u_4
+\end{pmatrix}, 
+\mathbf{v} =
+\begin{pmatrix}
+  v_1\\
+  v_2\\
+  v_3\\
+  v_4
+\end{pmatrix} 
+\in S$ 
+we have 
+\begin{align*}
+  3u_1 - 4u_2 - 8u_3 - 2u_4 &= 0  \tag{1} \\
+  3v_1 - 4v_2 - 8v_3 - 2v_4 &= 0. \tag{2}
+\end{align*}
+If we add (1) and (2), we have 
+\begin{equation*}
+  (3u_1 - 4u_2 - 8u_3 - 2u_4 )+ (3v_1 - 4v_2 - 8v_3 - 2v_4) = 0 + 0.
+\end{equation*}
+Hence, we obtain 
+\begin{equation*}
+  3(u_1 + v_1) - 4(u_2 + v_2) - 8(u_3 + v_3) - 2(u_4 + v_4) = 0,
+\end{equation*}
+and so $\mathbf{u} + \mathbf{v} = 
+\begin{pmatrix}
+  u_1 + v_1\\
+  u_2 + v_2\\
+  u_3 + v_3\\
+  u_4 + v_4
+\end{pmatrix}
+\in S.$
+Thus, $S$ is closed under addition. 
+
+\textbf{Closure under scalar multiplication.} To check this, let $\lambda \in \mathbb{R}$ be a scalar.
+Then we can take equation (1) and multiply both sides by said $\lambda$. This gives
+\begin{align*}
+\lambda\,(3u_1 - 4u_2 - 8u_3 - 2u_4) &= \lambda\cdot 0 \\
+\implies
+3(\lambda u_1) - 4(\lambda u_2) - 8(\lambda u_3) - 2(\lambda u_4) &= 0.
+\end{align*}
+Hence, $\lambda \mathbf{u} = 
+\begin{pmatrix}
+  \lambda u_1\\
+  \lambda u_2\\
+  \lambda u_3\\
+  \lambda u_4
+\end{pmatrix}
+\in S$
+and so $S$ is closed under scalar multiplication.
+
+By the Subspace Theorem, the set $S$ is a vector subspace of $\mathbb{R}^4$.
+\newpage
+\section*{Question 3}
+Let $\mathbb{P}_n$ be the set of real polynomials of degree
+at most $n$, and write $p'$ and $p''$ for the first and
+second derivatives of $p$. Show that
+\begin{equation*}
+  S = \{p \in \mathbb{P}_6: p''(-4)+8p'(-4)=0\}
+\end{equation*}
+is a subspace of $\mathbb{P}_6$.
+
+$Solution.$ Similar to question 2, to figure out if $S$ is 
+a subspace of $\mathbb{P}_6$, we use the Subspace Theorem. 
+But, I will use the Alternative Subspace Theorem for this example.
+This theorem states A subset $S$ of a vector space $V$ over a 
+scalar field $\mathbb{F}$ is a subspace of $V$ if and only if
+$S$ contains the zero vector and satisfies the closure condition:
+\begin{equation*}
+  \text{If } \mathbf{v}_1,\mathbf{v}_2 \in S \text{ and } \lambda_1,\lambda_2 \in \mathbb{F},
+  \text{ then } \lambda_1 \mathbf{v}_1 + \lambda_2 \mathbf{v}_2 \in S.
+\end{equation*}
+
+\textbf{Check for the vector $\mathbf{0}$.} This is clearly in 
+set $S$ as $p''(-4) + 8p'(-4) = 0 + 8(0)$, so the zero polynomial of 
+$\mathbb{P}_6$ is in $S$.
+
+\textbf{Check closure condition.} Suppose that $p$, $q \in S$ 
+and $\lambda_1,\lambda_2 \in \mathbb{F}$, then for 
+$\lambda_1 p + \lambda_2 q$, we have
+\begin{align*}
+  (\lambda_1 p + \lambda_2 q)''(-4) + 8(\lambda_1 p + \lambda_2 q)'(-4)&= 
+  [\lambda_1 p''(-4) + \lambda_2 q''(-4)] +
+  8[\lambda_1 p'(-4) + \lambda_2 q'(-4)] \\ &=
+  [\lambda_1 p''(-4) + \lambda_1 8p'(-4)] +
+  [\lambda_2 q''(-4) + \lambda_2 8q'(-4)] \\ &=
+  \lambda_1 [p''(-4) + 8p'(-4)] +
+  \lambda_2 [q''(-4) + 8q'(-4)] \\ &=
+  (\lambda_1 \cdot 0 + \lambda_1 \cdot 0) +
+  (\lambda_2 \cdot 0 + \lambda_2 \cdot 0) \\ &= 0.
+\end{align*}
+Hence, $\lambda_1 p + \lambda_2 q \in S$, and $S$ is a subspace. 
+
+Note  
+\begin{align*}
+  p(x) = a_0 + a_1(x+4) + a_2(x+4)^2 +...+ a_6(x+4)^6. 
+\end{align*}
+Differentiating, we get 
+\begin{align*}
+  p'(x) &= a_1 + 2a_2(x + 4) + ... + 6a_6(x + 4)^5 \\
+  &\implies p'(-4) = a_1\\
+  p''(x) &= 2a_2 + 6a_3(x + 4) + ... + 30a_6(x + 4)^4\\
+  &\implies p''(-4) = 2a_2.
+\end{align*} 
+We are told $p''(-4) + 8p'(-4) = 0$ then 
+\begin{align*}
+  2a_2 &= -8a_1 \\
+  a_2 &= -4a_1.
+\end{align*}
+This means that a basis of $S$ is in the form
+\begin{equation*}
+  1, (x+4) - 4(x+4)^2, (x+4)^3, (x+4)^4, (x+4)^5, (x+4)^6,
+\end{equation*}
+because $a_1(x+4) + a_2(x+4)^2$ is replaced by 
+$a_1((x+4) - 4(x+4)^2)$.
+Also, because each basis vector has an arbitrary real coefficient, $\dim S=6$.
+\newpage
+\section*{Question 4}
+
+The air in a $82$ cubic metre kitchen is initially clean, 
+but when Margaret burns her toast while making breakfast, 
+smoke is mixed with the room's air at a rate of $0.08$
+mg per second. An air conditioning system exchanges the 
+mixture of air and smoke with clean air at a rate of $9$
+cubic metres per minute.  Assume that the pollutant is 
+mixed uniformly throughout the room and that burnt toast 
+is taken outside after $75$ seconds. Let $S(t)$
+be the amount of smoke in mg in the room at time $t$
+(in seconds) after the toast first began to burn.
+\begin{enumerate}[label=\alph*)]
+  \item Find a differential equation obeyed by $S(t)$.
+  \item Find $S(t)$ for $0 \leq t \leq 75$
+  by solving the differential equation in (a)
+  with an appropriate initial condition.
+  \item What is the level of pollution in mg per
+  cubic metre after $75$ seconds?
+  \item How long does it take for the level of pollution 
+  to fall to $0.003$
+  mg per cubic metre after the toast is taken outside?
+\end{enumerate}
+
+$Solution.$ a) First we need to find the differential equation for
+$\frac{dS(t)}{dt}.$ First we know that $S(0) = 0$, and we also 
+know how the smoke in the room $S$ changes with time $t$.
+In particular, 
+\begin{align*}
+  \frac{dS(t)}{dt} &= \text{rate of change of } S\\
+  &= \text{(rate of inflow) - (rate of outflow).} \tag{1}
+\end{align*}
+
+Now we know that rate of inflow of smoke $S$ is $0.08$ mg 
+per second. To calculate the rate of outflow, we take the 
+total volume of the air in the kitchen at time $t$ given by
+\begin{align*}
+  82 - 9(t) + 9(t) = 82.
+\end{align*}
+Hence, because the volume of air in the kitchen $V(t)$ does not 
+change with time $t$ the proportion of smoke is
+\begin{align*}
+  \frac{S(t)}{82}.
+\end{align*}
+Since the outflow of the air is $9$ cubic metres per minute
+\begin{align*}
+  \frac{S(t)}{82} \times \frac{9}{60} \ m^3/s 
+  = \frac{0.15}{82} S(t).
+\end{align*}
+Following from (1), we obtain the initial value problem while 
+the toast is burning $0 \leq t \leq 75$,
+\begin{align*}
+  \frac{dS}{dt} = 0.08 - \frac{0.15}{82}S(t)
+  , \qquad S(0) = 0.
+\end{align*}
+
+b) We solve the IVP (Initial Value Problem) found in a), say $k = \frac{0.15}{82}$ then,
+\begin{align}
+  \frac{dS}{dt} + k\,S = 0.08
+\end{align}
+\begin{align}
+  h(t) = e^{\int k\,\mathrm{d}t}
+  = e^{kt}.
+\end{align}
+Multiplying the ODE (1) by $e^{kt}$ (2) gives
+\begin{align*}
+  e^{kt}\frac{dS}{dt} + e^{kt}k\,S &= e^{kt}0.08  \\
+  \frac{d}{dt}(e^{kt} S(t)) &= e^{kt}0.08  \\
+  e^{kt}S(t) &= \int (0.08e^{kt}dt) \\
+  e^{kt}S(t) &= \frac{0.08}{k}e^{kt} + C \\
+  S(t) &= \frac{0.08}{k} + Ce^{-kt}. 
+  \qquad
+\end{align*}
+Since $S(0) = 0$ and substituting $k$ back into the equation, we have
+\begin{align*}
+  \frac{656}{15} + Ce^{-\frac{0.15}{82}\times0} &= 0 \\
+  C &= -\frac{656}{15}.
+\end{align*}
+So the amount of smoke in the kitchen at a particular time
+is given by
+\begin{align*}
+  S(t) &= \frac{656}{15} -\frac{656}{15}e^{-\frac{0.15}{82}t} \\
+  &= \frac{656}{15}(1-e^{-\frac{0.15}{82}t})  \tag{3}.
+\end{align*}
+
+c) Using equation (3), when $t = 75$,
+\begin{align*}
+  S(75) &= \frac{656}{15}(1-e^{-\frac{0.15}{82}(75)}) \\
+        &\approx 5.61 \quad 3s.f.
+\end{align*}
+This is the amount of smoke (mg) in the kitchen. To get
+it in mg per cubic metre we need to divide by $V = 82$, we then have 
+\begin{align*}
+  \text{concentration} = \frac{5.61}{82} \approx 0.0684 \quad 3s.f.
+\end{align*}
+
+d) For the level of pollution to fall to 0.003 mg per cubic metre, 
+this can be figured out using a similar process as before. The differential equation is the same as 
+equation (1) without the inflow like
+\begin{align*}
+  \frac{dS(t)}{dt} =  - \frac{0.15}{82}S(t).
+\end{align*}
+Now like before say $k = \frac{0.15}{82}$ solving the IVP,
+\begin{align*}
+  \int \frac{dS(t)}{dt} &=  -\int \left(\frac{0.15}{82}\,S(t)\right) dt. \implies \\
+  S(t) &= e^{-kt + C} \\
+  &= C e^{-kt}.
+\end{align*}
+Since $S(75) = 5.61$ then
+\begin{align*}
+  S(75)&= C e^{-k75} \implies C = S(75)e^{k75}.
+\end{align*}
+Substituting it back giving time taken after the toast is taken outside, we have
+\begin{align*}
+  S(t)= S(75)e^{-k(t-75)}, \quad t \geq 75. \tag{4}
+\end{align*}
+With equation (4) we can set the equation for 
+$S(t) = 0.003 \times 82$ mg per cubic metre giving 
+\begin{align*}
+   S(75)e^{-\frac{0.15}{82}(t-75)} = 0.246, \quad t \approx 1709 \text{ seconds}.
+\end{align*}
+\end{document}
